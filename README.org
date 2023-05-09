@@ -2,8 +2,8 @@
 
 ** Dependencies
 - neofetch
-- works for bash
-
+- jp2a
+- bash, shuf
 
 ** Neofetch Directory
 - Contains all pokemon sprites in separate folders.
@@ -13,7 +13,19 @@
   - shiny_unknown: contains the shiny Unknown
 
 * Add to bashrc script
+
+** All pokemon with 5% shiny chance.
 #+begin_src bash
-POKE=$( [ $(( RANDOM % (101) )) -gt 95 ] && echo ~/Path/to/neofetch/shiny/`ls ~/Path/to/neofetch/shiny|shuf -n 1` || echo ~/Path/to/neofetch/Pokemon/`ls ~/Path/to/neofetch/Pokemon|shuf -n 1`)
-neofetch --jp2a $POKE
+  # Remember to change ~/Path/to/neofetch below to make this work as expected
+  POKEFETCH_PATH=~/Path/to/neofetch
+  POKE=$( [ $(( RANDOM % (101) )) -gt 95 ] && echo $POKEFETCH_PATH/shiny/`ls $POKEFETCH_PATH/shiny|shuf -n 1` || echo    $POKEFETCH_PATH/Pokemon/`ls $POKEFETCH_PATH/Pokemon|shuf -n 1`)
+  neofetch --jp2a $POKE
+#+end_src
+
+** Only the Unknown with 5% shiny chance.
+#+begin_src bash
+  # Remember to change ~/Path/to/neofetch below to make this work as expected
+  POKEFETCH_PATH=~/Path/to/neofetch
+  POKE=$( [ $(( RANDOM % (101) )) -gt 95 ] && echo $POKEFETCH_PATH/shiny_unknown/`ls $POKEFETCH_PATH/shiny_unknown|shuf -n 1` || echo    $POKEFETCH_PATH/Unknown/`ls $POKEFETCH_PATH/Unknown|shuf -n 1`)
+  neofetch --jp2a $POKE   --colors 10 12 0 12 15
 #+end_src
