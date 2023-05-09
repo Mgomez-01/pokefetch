@@ -29,3 +29,16 @@
   POKE=$( [ $(( RANDOM % (101) )) -gt 95 ] && echo $POKEFETCH_PATH/shiny_unknown/`ls $POKEFETCH_PATH/shiny_unknown|shuf -n 1` || echo    $POKEFETCH_PATH/Unknown/`ls $POKEFETCH_PATH/Unknown|shuf -n 1`)
   neofetch --jp2a $POKE   --colors 10 12 0 12 15
 #+end_src
+
+* Examples
+
+#+CAPTION: This is an example showing mudkip
+#+NAME:   fig:mudkip example
+#+ATTR_HTML: :width 150px
+[[file:./images/Mudkip_example.png]]
+
+#+CAPTION: This is an example showing pikachu
+#+NAME:   fig:pikachu example
+#+ATTR_HTML: :width 150px
+[[file:./images/Pikachu_example.png]]
+
