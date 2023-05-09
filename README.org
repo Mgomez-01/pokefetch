@@ -1,1 +1,19 @@
 * Pokefetch
+
+** Dependencies
+- neofetch
+- works for bash
+
+
+** Neofetch Directory
+- Contains all pokemon sprites in separate folders.
+  - Pokemon:       contains all regular sprites
+  - shiny:         contains the shiny ones
+  - Unknown:       contains only Unknown
+  - shiny_unknown: contains the shiny Unknown
+
+* Add to bashrc script
+#+begin_src bash
+POKE=$( [ $(( RANDOM % (101) )) -gt 95 ] && echo ~/Path/to/neofetch/shiny/`ls ~/Path/to/neofetch/shiny|shuf -n 1` || echo ~/Path/to/neofetch/Pokemon/`ls ~/Path/to/neofetch/Pokemon|shuf -n 1`)
+neofetch --jp2a $POKE
+#+end_src
