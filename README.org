@@ -12,7 +12,7 @@
   - Unknown:       contains only Unknown
   - shiny_unknown: contains the shiny Unknown
 
-* Add to bashrc script
+* Add to bashrc script Drop in
 
 ** All pokemon with 5% shiny chance.
 #+begin_src bash
@@ -29,6 +29,26 @@
   POKE=$( [ $(( RANDOM % (101) )) -gt 95 ] && echo $POKEFETCH_PATH/shiny_unknown/`ls $POKEFETCH_PATH/shiny_unknown|shuf -n 1` || echo    $POKEFETCH_PATH/Unknown/`ls $POKEFETCH_PATH/Unknown|shuf -n 1`)
   neofetch --jp2a $POKE   --colors 10 12 0 12 15
 #+end_src
+
+* Wrapper for neofetch
+#+begin_src bash
+  # This is to wrap the function of Pokefetch to work a little smoother. The ability to provide the main path to images as an argument.
+  # Assumes the user gives a directory that contains Pokemon/ as well as shiny/. Now you can curate your own selection to display instead of all of them. call like pokefetch /Path/to/pngs %d
+  # %d as percentage of normal
+  pokefetch()
+  {
+
+  POKEFETCH_PATH=$1
+  NORMAL=`ls $POKEFETCH_PATH/Pokemon|shuf -n 1`
+  SHINY=`ls $POKEFETCH_PATH/shiny|shuf -n 1`
+     POKE=$( [ $(( RANDOM % (101) )) -gt $2 ] && echo $POKEFETCH_PATH/shiny/$SHINY || echo $POKEFETCH_PATH/Pokemon/$NORMAL)
+     neofetch --jp2a $POKE --colors 10 12 0 12 15
+     echo $NORMAL $SHINY
+
+
+  }
+#+end_src
+
 
 * Examples
 
