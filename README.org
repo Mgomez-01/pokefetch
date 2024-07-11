@@ -49,6 +49,24 @@
   }
 #+end_src
 
+* Another version with fastfetch
+
+In case you do not like how slow neofetch is to populate data in some cases, you could make use of [[https://github.com/fastfetch-cli/fastfetch][fastfetch]] instead. It is faster to populate and works out just as well once you get used to the slight differences to neofetch.
+
+#+begin_src bash
+pokefetch() {
+
+	POKEFETCH_PATH=$1
+	NORMAL=$(ls $POKEFETCH_PATH/Pokemon | shuf -n 1)
+	SHINY=$(ls $POKEFETCH_PATH/shiny | shuf -n 1)
+	POKE=$([ $((RANDOM % (101))) -gt $2 ] && echo $POKEFETCH_PATH/shiny/$SHINY || echo $POKEFETCH_PATH/Pokemon/$NORMAL)
+    # Convert image to ASCII using jp2a and store in a variable
+    ASCII_ART=$(jp2a --colors --width=60 $POKE)
+
+    # Use the ASCII art as the logo in Fastfetch
+    fastfetch --data "$ASCII_ART" --logo-type data
+}
+#+end_src
 
 * Examples
 
