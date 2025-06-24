@@ -1,5 +1,8 @@
 * Pokefetch
 
+** Student Questions:
+For the student that asked about this project, I forgot to mention that the colors for the text at the bottom of the terminal comes from another project called [[eww:https://starship.rs][Starship]]. I highly recommend it  
+
 ** Dependencies
 - neofetch
 - jp2a
