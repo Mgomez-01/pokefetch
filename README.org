@@ -1,5 +1,25 @@
 * Pokefetch
 
+* Automated Quick Install (Recommended)
+
+To install Pokefetch automatically:
+#+begin_src bash
+  ./install.sh
+#+end_src
+
+The installer will:
+1. Ask whether you prefer *fastfetch* (recommended, faster) or *neofetch* (classic).
+2. Check and install any missing dependencies (=jp2a=, =fastfetch=/=neofetch=, =shuf=).
+3. Back up =~/.bash_functions= to =~/.bash_functions_bu= and configure the =pokefetch= function.
+4. Clean previous startup messages and add the run line to the end of your =~/.bashrc=.
+
+Non-interactive / scripted usage:
+#+begin_src bash
+  ./install.sh --fastfetch    # Install using fastfetch
+  ./install.sh --neofetch     # Install using neofetch
+  ./install.sh --uninstall    # Uninstall and revert
+#+end_src
+
 ** Student Questions:
 For the student that asked about this project, I forgot to mention that the colors for the text at the bottom of the terminal comes from another project called [[eww:https://starship.rs][Starship]] (https://starship.rs) I highly recommend it  
 
